@@ -2,7 +2,13 @@
     display: flex;
     justify-content: center;
   }
-  
+
+.coin-box{
+  display: flex;
+  justify-content: center;
+  border: 1px solid black;
+  background-color: white;
+}
   .coin-row {
     display: flex;
     flex-direction: row;
@@ -17,7 +23,6 @@
     display: flex;
     align-items: center;
     padding-right: 24px;
-  
     min-width: 300px;
   }
   
@@ -27,9 +32,9 @@
   }
   
   .coin img {
-    height: 30px;
-    width: 30px;
-    margin-right: 10px;
+    height: 45px;
+    width: 45px;
+    margin-right: 20px;
   }
   
   .coin-symbol {

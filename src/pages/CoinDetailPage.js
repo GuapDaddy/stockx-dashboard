@@ -1,6 +1,6 @@
 import React from 'react'
 
-const CoinSummaryPage = () => {
+const CoinDetailPage = () => {
     return (
         <div>
             
@@ -8,4 +8,4 @@ const CoinSummaryPage = () => {
     )
 }
 
-export default CoinSummaryPage
+export default CoinDetailPage
