@@ -2,6 +2,7 @@ import React ,{useState , useEffect} from 'react'
 import axios from 'axios'
 import Coin from '../components/CoinList'
 
+
 const Home = () => {
 
     const [search, setSearch] = useState('')
