@@ -1,7 +1,7 @@
 import React ,{useState , useEffect} from 'react'
 import axios from 'axios'
-import Coin from './homeCoin'
-import Header from '../../components/Header'
+import Coin from '../components/CoinList'
+import Header from '../components/Header'
 
 const Home = () => {
 

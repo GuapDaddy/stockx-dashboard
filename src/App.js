@@ -1,7 +1,7 @@
 import './css/App.css';
 import React from 'react'
 import {BrowserRouter, Route} from 'react-router-dom'
-import Home from './pages/home/Home';
+import Home from './pages/CoinHome';
 import CoinDetailPage from './pages/CoinDetailPage'
 import CoinSummaryPage from './pages/CoinSummaryPage'
 import Header from './components/Header';
@@ -18,7 +18,7 @@ function App() {
       <Header/>
       <Route exact path='/' component={Home} />
       <Route exact path='/summary' component={CoinSummaryPage} />
-      <Route exact path='/detail' component={CoinDetailPage} />
+      <Route exact path='/coins/:id' component={CoinDetailPage} />
       </BrowserRouter>
       </WatchlistContextProvider>
     </div>

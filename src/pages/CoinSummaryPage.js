@@ -1,6 +1,6 @@
 import React from 'react'
 import CoinAdd from "../components/AddCoin.js"
-import CoinList from "../components/CoinList.js"
+import CoinList from "../components/CoinListUser.js"
 
 const CoinSummaryPage = () => {
     return (

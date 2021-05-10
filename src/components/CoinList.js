@@ -1,48 +1,29 @@
-import React, { useEffect, useState, useContext } from 'react'
-import coinGecko from '../apis/coinGecko'
-import { WatchlistContext } from '../context/watchListcontext'
-import Coin from '../components/Coin'
+import React from 'react'
+import '../css/coin.css'
 
-const CoinList = () => {
-    const [ coins, setCoins] = useState([])
-    const { watchList, deleteCoin } = useContext(WatchlistContext)
-    const [isLoading, setIsLoading] = useState(false)
-    console.log(watchList)
-    useEffect(() =>{
-        const fetchData = async () => {
-                setIsLoading(true)
-            const response = await coinGecko.get("/coins/markets", {
-                params: {
-                    vs_currency: "usd",
-                    ids: watchList.join(","),
-                }
-            })
-            setCoins(response.data)
-            setIsLoading(false)
-        }
-
-        fetchData()
-    }, [watchList])
-
-    const renderCoins = () => {
-        if(isLoading) {
-            return <div>Loading...</div>
-        }
-
-        return(
-            <ul className="coinlist list-group mt-2">
-                {coins.map(coin => {
-                   return <Coin key={coin.id} coin={coin} deleteCoin={deleteCoin} />
-                })}
-            </ul>
-        )
-    }
-
+const Coin = ({name, image, symbol, price, volume, priceChange, marketcap}) => {
     return (
-        <div>
-            {renderCoins()}
+        <div className="coin-container">
+            <div className="coin-row">
+                <div className="coin">
+                    <img src={image} alt='crypto'/>
+                    <h1>{name}</h1>
+                    <p className="coin-symbol">{symbol}</p>
+                </div>
+                <div className="coin-data">
+                    <p className="coin-price">${price}</p>
+                    <p className="coin-volume">${volume.toLocaleString()}</p>
+                    {priceChange < 0 ? (
+                        <p className="coin-percent red">{priceChange.toFixed(2)}%</p>
+                        ) : (<p className="coin-percent green">{priceChange.toFixed(2)}%</p>)
+                    }
+                    <p className="coin-marketcap">
+                        Mkt Cap: ${marketcap.toLocaleString()}
+                    </p>
+                </div>
+            </div>
         </div>
     )
 }
 
-export default CoinList
+export default Coin
